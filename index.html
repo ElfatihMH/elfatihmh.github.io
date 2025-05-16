@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elfatih Farah | Network Engineer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p0yIcqLjNqPZwXJfcmvL1V+OfYbUjB9mh0lSM3B77e2+8ebOLt5zv9YVgYJxAnDS9Z3I7UGTQJNNtSmIP+P+UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --primary: #2563eb;
@@ -64,27 +63,15 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
-    .contact div a, .services-grid div a, .projects-grid div a {
+    .contact div a, .services-grid div, .projects-grid div {
       color: var(--primary);
       text-decoration: none;
-      display: inline-block;
-      margin-top: 0.5rem;
     }
     .services-grid div, .projects-grid div {
       background-color: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .services-grid div:hover, .projects-grid div:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    }
-    .services-grid div i, .projects-grid div i {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .download-cv {
       text-align: center;
@@ -124,74 +111,75 @@
 
   <div class="container">
     <section>
+      <h2>About Me</h2>
+      <p>Network and infrastructure engineer with over 8 years of experience in building secure, scalable, and reliable IT systems. Specialized in Cisco, Huawei, VSAT, pfSense, FortiGate, Linux, and virtualization. Passionate about delivering high-quality IT solutions and empowering users through training and consultation.</p>
+    </section>
+
+    <section>
       <h2>Services</h2>
       <div class="services-grid">
-        <div>
-          <i class="fas fa-network-wired"></i><br>
-          <strong>Network Design & Implementation</strong><br>
-          Design and deploy secure, scalable networks.<br>
-          <a href="mailto:alfatihmh@gmail.com">Request Service</a>
-        </div>
-        <div>
-          <i class="fas fa-shield-alt"></i><br>
-          <strong>Firewall & VPN Configuration</strong><br>
-          pfSense & FortiGate solutions with remote access.<br>
-          <a href="mailto:alfatihmh@gmail.com">Request Service</a>
-        </div>
-        <div>
-          <i class="fas fa-server"></i><br>
-          <strong>Linux & Windows Server</strong><br>
-          Full system setup and hardening.<br>
-          <a href="mailto:alfatihmh@gmail.com">Request Service</a>
-        </div>
-        <div>
-          <i class="fas fa-chalkboard-teacher"></i><br>
-          <strong>Technical Consultation</strong><br>
-          Strategic advice for your IT infrastructure.<br>
-          <a href="mailto:alfatihmh@gmail.com">Book a Call</a>
-        </div>
-        <div>
-          <i class="fas fa-graduation-cap"></i><br>
-          <strong>eLearning Systems</strong><br>
-          Deploy Moodle, Koha, DSpace, and more.<br>
-          <a href="mailto:alfatihmh@gmail.com">Start Now</a>
-        </div>
-        <div>
-          <i class="fas fa-satellite-dish"></i><br>
-          <strong>VSAT & Fiber Installation</strong><br>
-          Rural and corporate network coverage.<br>
-          <a href="mailto:alfatihmh@gmail.com">Contact Me</a>
-        </div>
+        <div><strong>Network Design & Implementation</strong><br>Complete design and deployment of secure and scalable network infrastructures.</div>
+        <div><strong>Firewall & VPN Configuration</strong><br>Setup and management of pfSense and FortiGate systems with secure VPN access.</div>
+        <div><strong>Linux & Windows Server Administration</strong><br>Full system setup, maintenance, and security hardening.</div>
+        <div><strong>Technical Consultation</strong><br>Professional advice for IT infrastructure and digital transformation projects.</div>
+        <div><strong>e-Learning Systems Deployment</strong><br>Installation and configuration of Moodle, Koha, and DSpace platforms.</div>
+        <div><strong>VSAT and Fiber Network Setup</strong><br>Rural connectivity solutions including VSAT and fiber optic technology.</div>
       </div>
     </section>
 
     <section>
       <h2>Featured Projects</h2>
       <div class="projects-grid">
-        <div>
-          <i class="fas fa-database"></i><br>
-          <strong>Ministry of Finance – Data Center</strong><br>
-          Designed and implemented secure IT infrastructure.<br>
-          <a href="#">View Details</a>
-        </div>
-        <div>
-          <i class="fas fa-book-reader"></i><br>
-          <strong>Alsalam University – Library System</strong><br>
-          DSpace & Koha setup for digital academic content.<br>
-          <a href="#">View Details</a>
-        </div>
-        <div>
-          <i class="fas fa-university"></i><br>
-          <strong>Alodaya Technical College – Network</strong><br>
-          Campus-wide wireless & firewall system.<br>
-          <a href="#">View Details</a>
-        </div>
-        <div>
-          <i class="fas fa-wifi"></i><br>
-          <strong>VSAT Projects</strong><br>
-          High-availability satellite internet deployments.<br>
-          <a href="#">View Details</a>
-        </div>
+        <div><strong>Ministry of Finance – Data Center</strong><br>Designed and implemented a secure, redundant data center infrastructure.</div>
+        <div><strong>Alsalam University – Library System</strong><br>Built and managed digital library systems using Koha and DSpace.</div>
+        <div><strong>Alodaya Technical College – Network</strong><br>Full campus network infrastructure including wireless access and firewall.</div>
+        <div><strong>VSAT Projects</strong><br>Installed and configured VSAT internet connectivity in remote areas.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Senior Technical Support Engineer</strong> – TIC-LY – 2025–Present</li>
+        <li><strong>University Department Head of Computer Networks</strong> – Alsalam University – 2016–2021</li>
+        <li><strong>IT Technical Support</strong> – NMSF, Sudan – 2016–2020</li>
+        <li><strong>Networks Administrator</strong> – Alsalam University – 2016–2020</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul>
+        <li>Google IT Support Certificate</li>
+        <li>Google Project Management Certificate</li>
+        <li>ICSI CNSS – Certified Network Security Specialist</li>
+        <li>Fortinet NSE 1 & NSE 2</li>
+        <li>Certified VSAT Installer – Satoms</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <div>Linux (Debian, Redhat)</div>
+        <div>pfSense, FortiGate Firewall</div>
+        <div>Python Programming</div>
+        <div>Windows Server</div>
+        <div>Virtualization (VMware, Proxmox)</div>
+        <div>Network Monitoring: Nagios, Cacti</div>
+        <div>WordPress & System Admin</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <div class="contact">
+        <div><strong>Email:</strong> <a href="mailto:alfatihmh@gmail.com">alfatihmh@gmail.com</a></div>
+        <div><strong>Phone:</strong> +218 930392538</div>
+        <div><strong>WhatsApp:</strong> <a href="https://wa.me/218930392538" target="_blank">Chat on WhatsApp</a></div>
+        <div><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/elfatihfarah" target="_blank">linkedin.com/in/elfatihfarah</a></div>
+        <div><strong>GitHub:</strong> <a href="https://github.com/elfatih-net" target="_blank">github.com/elfatih-net</a></div>
+        <div><strong>Location:</strong> Tripoli, Libya</div>
       </div>
     </section>
   </div>
