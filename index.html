@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elfatih Farah | Network Engineer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p0yIcqLjNqPZwXJfcmvL1V+OfYbUjB9mh0lSM3B77e2+8ebOLt5zv9YVgYJxAnDS9Z3I7UGTQJNNtSmIP+P+UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --primary: #2563eb;
       --secondary: #1e293b;
       --light: #f1f5f9;
       --text: #0f172a;
-      --white: #ffffff;
     }
     body {
       font-family: 'Roboto', sans-serif;
@@ -65,22 +64,27 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
+    .contact div a, .services-grid div a, .projects-grid div a {
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
     .services-grid div, .projects-grid div {
-      background-color: var(--white);
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .services-grid div:hover, .projects-grid div:hover {
-      transform: scale(1.02);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     }
-    .services-grid strong::before, .projects-grid strong::before {
-      content: "\f058 ";
-      font-family: 'Font Awesome 5 Free';
-      font-weight: 900;
+    .services-grid div i, .projects-grid div i {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
       color: var(--primary);
-      margin-right: 5px;
     }
     .download-cv {
       text-align: center;
@@ -97,26 +101,6 @@
     }
     .download-cv a:hover {
       background-color: #1d4ed8;
-    }
-    .admin-section {
-      margin-top: 3rem;
-      padding: 2rem;
-      background-color: #e0e7ff;
-      border-radius: 10px;
-    }
-    .admin-section input, .admin-section textarea, .admin-section button {
-      display: block;
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    .admin-section button {
-      background-color: var(--primary);
-      color: white;
-      cursor: pointer;
     }
     .footer {
       text-align: center;
@@ -141,39 +125,73 @@
   <div class="container">
     <section>
       <h2>Services</h2>
-      <div class="services-grid" id="services">
-        <!-- Cards will be dynamically added here -->
+      <div class="services-grid">
+        <div>
+          <i class="fas fa-network-wired"></i><br>
+          <strong>Network Design & Implementation</strong><br>
+          Design and deploy secure, scalable networks.<br>
+          <a href="mailto:alfatihmh@gmail.com">Request Service</a>
+        </div>
+        <div>
+          <i class="fas fa-shield-alt"></i><br>
+          <strong>Firewall & VPN Configuration</strong><br>
+          pfSense & FortiGate solutions with remote access.<br>
+          <a href="mailto:alfatihmh@gmail.com">Request Service</a>
+        </div>
+        <div>
+          <i class="fas fa-server"></i><br>
+          <strong>Linux & Windows Server</strong><br>
+          Full system setup and hardening.<br>
+          <a href="mailto:alfatihmh@gmail.com">Request Service</a>
+        </div>
+        <div>
+          <i class="fas fa-chalkboard-teacher"></i><br>
+          <strong>Technical Consultation</strong><br>
+          Strategic advice for your IT infrastructure.<br>
+          <a href="mailto:alfatihmh@gmail.com">Book a Call</a>
+        </div>
+        <div>
+          <i class="fas fa-graduation-cap"></i><br>
+          <strong>eLearning Systems</strong><br>
+          Deploy Moodle, Koha, DSpace, and more.<br>
+          <a href="mailto:alfatihmh@gmail.com">Start Now</a>
+        </div>
+        <div>
+          <i class="fas fa-satellite-dish"></i><br>
+          <strong>VSAT & Fiber Installation</strong><br>
+          Rural and corporate network coverage.<br>
+          <a href="mailto:alfatihmh@gmail.com">Contact Me</a>
+        </div>
       </div>
     </section>
 
     <section>
       <h2>Featured Projects</h2>
-      <div class="projects-grid" id="projects">
-        <!-- Project cards will be dynamically added here -->
-      </div>
-    </section>
-
-    <section class="admin-section">
-      <h2>Add New Service</h2>
-      <input type="text" id="serviceTitle" placeholder="Service Title">
-      <textarea id="serviceDesc" placeholder="Service Description"></textarea>
-      <button onclick="addService()">Add Service</button>
-
-      <h2>Add New Project</h2>
-      <input type="text" id="projectTitle" placeholder="Project Title">
-      <textarea id="projectDesc" placeholder="Project Description"></textarea>
-      <button onclick="addProject()">Add Project</button>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <div class="contact">
-        <div><strong>Email:</strong> <a href="mailto:alfatihmh@gmail.com">alfatihmh@gmail.com</a></div>
-        <div><strong>Phone:</strong> +218 930392538</div>
-        <div><strong>WhatsApp:</strong> <a href="https://wa.me/218930392538" target="_blank">Chat on WhatsApp</a></div>
-        <div><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/elfatihfarah" target="_blank">linkedin.com/in/elfatihfarah</a></div>
-        <div><strong>GitHub:</strong> <a href="https://github.com/elfatih-net" target="_blank">github.com/elfatih-net</a></div>
-        <div><strong>Location:</strong> Tripoli, Libya</div>
+      <div class="projects-grid">
+        <div>
+          <i class="fas fa-database"></i><br>
+          <strong>Ministry of Finance – Data Center</strong><br>
+          Designed and implemented secure IT infrastructure.<br>
+          <a href="#">View Details</a>
+        </div>
+        <div>
+          <i class="fas fa-book-reader"></i><br>
+          <strong>Alsalam University – Library System</strong><br>
+          DSpace & Koha setup for digital academic content.<br>
+          <a href="#">View Details</a>
+        </div>
+        <div>
+          <i class="fas fa-university"></i><br>
+          <strong>Alodaya Technical College – Network</strong><br>
+          Campus-wide wireless & firewall system.<br>
+          <a href="#">View Details</a>
+        </div>
+        <div>
+          <i class="fas fa-wifi"></i><br>
+          <strong>VSAT Projects</strong><br>
+          High-availability satellite internet deployments.<br>
+          <a href="#">View Details</a>
+        </div>
       </div>
     </section>
   </div>
@@ -181,55 +199,5 @@
   <div class="footer">
     &copy; 2025 Elfatih Farah. All rights reserved.
   </div>
-
-  <script>
-    const services = [
-      { title: "Network Design & Implementation", desc: "Structured LAN/WAN, VLANs, Fiber, Wireless" },
-      { title: "Firewall & VPN Setup", desc: "pfSense, FortiGate, Site-to-Site & Remote Access" },
-      { title: "VSAT & Connectivity", desc: "Rural coverage, Internet setup for remote sites" },
-      { title: "E-learning Platforms", desc: "Moodle, DSpace, Koha, WordPress LMS" },
-      { title: "System Administration", desc: "Linux, Windows Server, VMware, Proxmox" }
-    ];
-
-    const projects = [
-      { title: "Ministry of Finance – Data Center", desc: "Network & infrastructure implementation for the entire facility." },
-      { title: "Alsalam University – Library System", desc: "Setup of Koha & DSpace repositories with Ubuntu Server." },
-      { title: "Technical College – Alodaya", desc: "Full LAN/Wi-Fi network design, installation, and documentation." },
-      { title: "Online Learning Platform", desc: "Integrated system with video & payment (under development)." }
-    ];
-
-    function displayCards(data, containerId) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = "";
-      data.forEach(item => {
-        const card = document.createElement('div');
-        card.innerHTML = `<strong>${item.title}</strong><br>${item.desc}`;
-        container.appendChild(card);
-      });
-    }
-
-    function addService() {
-      const title = document.getElementById('serviceTitle').value;
-      const desc = document.getElementById('serviceDesc').value;
-      if (title && desc) {
-        services.push({ title, desc });
-        displayCards(services, 'services');
-      }
-    }
-
-    function addProject() {
-      const title = document.getElementById('projectTitle').value;
-      const desc = document.getElementById('projectDesc').value;
-      if (title && desc) {
-        projects.push({ title, desc });
-        displayCards(projects, 'projects');
-      }
-    }
-
-    window.onload = function() {
-      displayCards(services, 'services');
-      displayCards(projects, 'projects');
-    };
-  </script>
 </body>
 </html>
