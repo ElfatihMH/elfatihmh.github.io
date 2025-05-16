@@ -7,10 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #2563eb;
+      --primary: #3b82f6;
       --secondary: #1e293b;
-      --light: #f1f5f9;
+      --light: #f8fafc;
       --text: #0f172a;
+      --accent: #60a5fa;
     }
     body {
       font-family: 'Roboto', sans-serif;
@@ -20,7 +21,7 @@
       color: var(--text);
     }
     header {
-      background: linear-gradient(90deg, #1e40af, #3b82f6);
+      background: linear-gradient(90deg, #1d4ed8, #3b82f6);
       color: white;
       padding: 3rem 2rem 2rem;
       text-align: center;
@@ -34,7 +35,7 @@
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
     }
     header p {
       font-size: 1.2rem;
@@ -45,21 +46,22 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 1rem;
-      background-color: #e0e7ff;
+      background-color: #dbeafe;
       padding: 1rem;
       text-align: center;
     }
     .contact-bar a {
       background-color: var(--primary);
       color: white;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
       text-decoration: none;
       font-weight: 500;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
     .contact-bar a:hover {
-      background-color: #1d4ed8;
+      background-color: var(--accent);
+      transform: scale(1.05);
     }
     .container {
       max-width: 1000px;
@@ -68,21 +70,78 @@
     }
     section {
       margin-bottom: 2.5rem;
+      text-align: center;
     }
     h2 {
-      color: var(--secondary);
-      border-left: 5px solid var(--primary);
-      padding-left: 0.5rem;
+      color: var(--primary);
+      font-size: 2rem;
       margin-bottom: 1rem;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      margin: 0.5rem auto 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--accent);
+      border-radius: 2px;
     }
     ul {
-      padding-left: 1.5rem;
-      line-height: 1.6;
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
     }
     .skills {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
+      justify-content: center;
+    }
+    .skills div {
+      background-color: white;
+      padding: 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .testimonials {
+      background-color: white;
+      border: 1px solid #e5e7eb;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      max-width: 800px;
+      margin: auto;
+    }
+    .testimonial {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testimonial span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+    .download-cv {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .download-cv a {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+    .download-cv a:hover {
+      background-color: #1d4ed8;
     }
     .footer {
       text-align: center;
@@ -110,10 +169,10 @@
   <div class="container">
     <section>
       <h2>About Me</h2>
-      <p>Professional ICT Engineer with more than 7 years experiances in this field As following:
-1- Network Administrator : WANs, LANs, and wireless networks, Cisco, Huawei
-2- VSAT installing,
-3- System Administrator : Ubuntu Servers-Windows servers -Virtualization VMware, Proxmox,
+      <p>Professional ICT Engineer with more than 7 years experiances in this field As following:<br>
+1- Network Administrator : WANs, LANs, and wireless networks, Cisco, Huawei<br>
+2- VSAT installing,<br>
+3- System Administrator : Ubuntu Servers-Windows servers -Virtualization VMware, Proxmox,<br>
 4- Senior IT Technical support engineer: maintain PCs, printers, scanners, UPSs, and other hardware</p>
     </section>
     <section>
@@ -157,6 +216,22 @@
         <div>WordPress & System Admin</div>
       </div>
     </section>
+    <section>
+      <h2>Testimonials</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          “Elfatih is one of the most dedicated engineers I’ve worked with. His knowledge in network systems is outstanding.”
+          <span>— IT Director, Alsalam University</span>
+        </div>
+        <div class="testimonial">
+          “His ability to troubleshoot under pressure saved our infrastructure during a critical system outage.”
+          <span>— Infrastructure Manager, Ministry of Finance</span>
+        </div>
+      </div>
+    </section>
+    <div class="download-cv">
+      <a href="Elfatih_Farah_CV.pdf" download>📄 Download My CV (PDF)</a>
+    </div>
   </div>
 
   <div class="footer">
