@@ -40,6 +40,27 @@
       font-size: 1.2rem;
       margin-top: 0.5rem;
     }
+    .contact-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background-color: #e0e7ff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .contact-bar a {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+    .contact-bar a:hover {
+      background-color: #1d4ed8;
+    }
     .container {
       max-width: 1000px;
       margin: auto;
@@ -58,14 +79,10 @@
       padding-left: 1.5rem;
       line-height: 1.6;
     }
-    .skills, .contact {
+    .skills {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
-    }
-    .contact div a {
-      color: var(--primary);
-      text-decoration: none;
     }
     .footer {
       text-align: center;
@@ -82,14 +99,22 @@
     <h1>Elfatih Mohamed Hameid Farah</h1>
     <p>Professional Network & System Engineer</p>
   </header>
+
+  <div class="contact-bar">
+    <a href="mailto:alfatihmh@gmail.com">📧 Email</a>
+    <a href="https://wa.me/218930392538" target="_blank">💬 WhatsApp</a>
+    <a href="https://linkedin.com/in/elfatihmh" target="_blank">🔗 LinkedIn</a>
+    <a href="https://github.com/elfatihmh" target="_blank">💻 GitHub</a>
+  </div>
+
   <div class="container">
     <section>
       <h2>About Me</h2>
       <p>Professional ICT Engineer with more than 7 years experiances in this field As following:
- 1- Network Administrator : WANs, LANs, and wireless networks, Cisco, Huawei
- 2- VSAT installing,
- 3- System Administrator : Ubuntu Servers-Windows servers -Virtualization VMware, Proxmox,
- 4- Senior IT Technical support engineer: maintain PCs, printers, scanners, UPSs, and other hardware</p>
+1- Network Administrator : WANs, LANs, and wireless networks, Cisco, Huawei
+2- VSAT installing,
+3- System Administrator : Ubuntu Servers-Windows servers -Virtualization VMware, Proxmox,
+4- Senior IT Technical support engineer: maintain PCs, printers, scanners, UPSs, and other hardware</p>
     </section>
     <section>
       <h2>Experience</h2>
@@ -132,18 +157,8 @@
         <div>WordPress & System Admin</div>
       </div>
     </section>
-    <section>
-      <h2>Contact</h2>
-      <div class="contact">
-        <div><strong>Email:</strong> <a href="mailto:alfatihmh@gmail.com">alfatihmh@gmail.com</a></div>
-        <div><strong>Phone:</strong> +218 930392538</div>
-        <div><strong>WhatsApp:</strong> <a href="https://wa.me/218930392538" target="_blank">Chat on WhatsApp</a></div>
-        <div><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/elfatihmh" target="_blank">linkedin.com/in/elfatihmh</a></div>
-        <div><strong>GitHub:</strong> <a href="https://github.com/elfatihmh" target="_blank">github.com/elfatihmh</a></div>
-        <div><strong>Location:</strong> Tripoli, Libya</div>
-      </div>
-    </section>
   </div>
+
   <div class="footer">
     &copy; 2025 Elfatih Farah. All rights reserved.
   </div>
