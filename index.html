@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elfatih Farah | Network Engineer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
       --primary: #2563eb;
       --secondary: #1e293b;
       --light: #f1f5f9;
       --text: #0f172a;
+      --white: #ffffff;
     }
     body {
       font-family: 'Roboto', sans-serif;
@@ -58,14 +60,27 @@
       padding-left: 1.5rem;
       line-height: 1.6;
     }
-    .skills, .contact {
+    .skills, .contact, .services-grid, .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
-    .contact div a {
+    .services-grid div, .projects-grid div {
+      background-color: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .services-grid div:hover, .projects-grid div:hover {
+      transform: scale(1.02);
+    }
+    .services-grid strong::before, .projects-grid strong::before {
+      content: "\f058 ";
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
       color: var(--primary);
-      text-decoration: none;
+      margin-right: 5px;
     }
     .download-cv {
       text-align: center;
@@ -83,6 +98,26 @@
     .download-cv a:hover {
       background-color: #1d4ed8;
     }
+    .admin-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background-color: #e0e7ff;
+      border-radius: 10px;
+    }
+    .admin-section input, .admin-section textarea, .admin-section button {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .admin-section button {
+      background-color: var(--primary);
+      color: white;
+      cursor: pointer;
+    }
     .footer {
       text-align: center;
       padding: 1rem;
@@ -94,9 +129,9 @@
 </head>
 <body>
   <header>
-<img src="Elfatih.jpg" alt="Elfatih Farah">
+    <img src="elfatih.jpg" alt="Elfatih Farah">
     <h1>Elfatih Mohamed Hameid Farah</h1>
-    <p>Professional Network & System Engineer</p>
+    <p>Professional Network & IT Infrastructure Engineer</p>
   </header>
 
   <div class="download-cv">
@@ -105,68 +140,96 @@
 
   <div class="container">
     <section>
-      <h2>About Me</h2>
-      <p>Professional ICT Engineer with more than 7 years experiances in this field As following:
-
-1- Network Administrator : WANs, LANs, and wireless networks, Cisco, Huawei
-2- VSAT installing,
-3- System Administrator : Ubuntu Servers-Windows servers -Virtualization VMware, Proxmox,
-4- Senior IT Technical support engineer: maintain PCs, printers, scanners, UPSs, and other hardware</p>
-    </section>
-    <section>
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>Senior Technical Support Engineer</strong> – TIC-LY – 2025–Present</li>
-        <li><strong>System administrator - contract </strong> – ministry of finance - 2022 – 2025</li>
-        <li><strong>University Department Head of Computer Networks</strong> – Alsalam University – 2020–2022</li>
-        <li><strong>Networks Administrator</strong> – Alsalam University – 2018–2020</li>
-        <li><strong>IT Technical Support</strong> – NMSF, Sudan – 2018–2019</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>Data Center Design – Ministry of Finance</li>
-        <li>Computer Network – Alodaya Technical College</li>
-        <li>DSpace & Koha Library System – Alsalam University</li>
-        <li>Computer Lab – Faculty of Arts – Alsalam University</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Certifications</h2>
-      <ul>
-        <li>Google IT Support Certificate</li>
-        <li>Google Project Management Certificate</li>
-        <li>ICSI CNSS – Certified Network Security Specialist</li>
-        <li>Fortinet NSE 1 & NSE 2</li>
-        <li>Certified VSAT Installer – Satoms</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Skills</h2>
-      <div class="skills">
-        <div>Linux (Debian, Redhat)</div>
-        <div>pfSense, FortiGate Firewall</div>
-        <div>Python Programming</div>
-        <div>Windows Server</div>
-        <div>Virtualization (VMware, Proxmox)</div>
-        <div>Network Monitoring: Nagios, Cacti</div>
-        <div>WordPress & System Admin</div>
+      <h2>Services</h2>
+      <div class="services-grid" id="services">
+        <!-- Cards will be dynamically added here -->
       </div>
     </section>
+
+    <section>
+      <h2>Featured Projects</h2>
+      <div class="projects-grid" id="projects">
+        <!-- Project cards will be dynamically added here -->
+      </div>
+    </section>
+
+    <section class="admin-section">
+      <h2>Add New Service</h2>
+      <input type="text" id="serviceTitle" placeholder="Service Title">
+      <textarea id="serviceDesc" placeholder="Service Description"></textarea>
+      <button onclick="addService()">Add Service</button>
+
+      <h2>Add New Project</h2>
+      <input type="text" id="projectTitle" placeholder="Project Title">
+      <textarea id="projectDesc" placeholder="Project Description"></textarea>
+      <button onclick="addProject()">Add Project</button>
+    </section>
+
     <section>
       <h2>Contact</h2>
       <div class="contact">
         <div><strong>Email:</strong> <a href="mailto:alfatihmh@gmail.com">alfatihmh@gmail.com</a></div>
         <div><strong>Phone:</strong> +218 930392538</div>
         <div><strong>WhatsApp:</strong> <a href="https://wa.me/218930392538" target="_blank">Chat on WhatsApp</a></div>
-        <div><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/elfatihfarah" target="_blank">linkedin.com/in/elfatihmh</a></div>
+        <div><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/elfatihfarah" target="_blank">linkedin.com/in/elfatihfarah</a></div>
+        <div><strong>GitHub:</strong> <a href="https://github.com/elfatih-net" target="_blank">github.com/elfatih-net</a></div>
         <div><strong>Location:</strong> Tripoli, Libya</div>
       </div>
     </section>
   </div>
+
   <div class="footer">
     &copy; 2025 Elfatih Farah. All rights reserved.
   </div>
+
+  <script>
+    const services = [
+      { title: "Network Design & Implementation", desc: "Structured LAN/WAN, VLANs, Fiber, Wireless" },
+      { title: "Firewall & VPN Setup", desc: "pfSense, FortiGate, Site-to-Site & Remote Access" },
+      { title: "VSAT & Connectivity", desc: "Rural coverage, Internet setup for remote sites" },
+      { title: "E-learning Platforms", desc: "Moodle, DSpace, Koha, WordPress LMS" },
+      { title: "System Administration", desc: "Linux, Windows Server, VMware, Proxmox" }
+    ];
+
+    const projects = [
+      { title: "Ministry of Finance – Data Center", desc: "Network & infrastructure implementation for the entire facility." },
+      { title: "Alsalam University – Library System", desc: "Setup of Koha & DSpace repositories with Ubuntu Server." },
+      { title: "Technical College – Alodaya", desc: "Full LAN/Wi-Fi network design, installation, and documentation." },
+      { title: "Online Learning Platform", desc: "Integrated system with video & payment (under development)." }
+    ];
+
+    function displayCards(data, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+      data.forEach(item => {
+        const card = document.createElement('div');
+        card.innerHTML = `<strong>${item.title}</strong><br>${item.desc}`;
+        container.appendChild(card);
+      });
+    }
+
+    function addService() {
+      const title = document.getElementById('serviceTitle').value;
+      const desc = document.getElementById('serviceDesc').value;
+      if (title && desc) {
+        services.push({ title, desc });
+        displayCards(services, 'services');
+      }
+    }
+
+    function addProject() {
+      const title = document.getElementById('projectTitle').value;
+      const desc = document.getElementById('projectDesc').value;
+      if (title && desc) {
+        projects.push({ title, desc });
+        displayCards(projects, 'projects');
+      }
+    }
+
+    window.onload = function() {
+      displayCards(services, 'services');
+      displayCards(projects, 'projects');
+    };
+  </script>
 </body>
 </html>
