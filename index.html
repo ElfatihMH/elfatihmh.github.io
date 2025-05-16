@@ -58,20 +58,14 @@
       padding-left: 1.5rem;
       line-height: 1.6;
     }
-    .skills, .contact, .services-grid, .projects-grid {
+    .skills, .contact {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
     }
-    .contact div a, .services-grid div, .projects-grid div {
+    .contact div a {
       color: var(--primary);
       text-decoration: none;
-    }
-    .services-grid div, .projects-grid div {
-      background-color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .download-cv {
       text-align: center;
@@ -100,7 +94,7 @@
 </head>
 <body>
   <header>
-    <img src="elfatih.jpg" alt="Elfatih Farah">
+    <img src="https://avatars.githubusercontent.com/u/00000000?v=4" alt="Elfatih Farah">
     <h1>Elfatih Mohamed Hameid Farah</h1>
     <p>Professional Network & IT Infrastructure Engineer</p>
   </header>
@@ -114,29 +108,6 @@
       <h2>About Me</h2>
       <p>Network and infrastructure engineer with over 8 years of experience in building secure, scalable, and reliable IT systems. Specialized in Cisco, Huawei, VSAT, pfSense, FortiGate, Linux, and virtualization. Passionate about delivering high-quality IT solutions and empowering users through training and consultation.</p>
     </section>
-
-    <section>
-      <h2>Services</h2>
-      <div class="services-grid">
-        <div><strong>Network Design & Implementation</strong><br>Complete design and deployment of secure and scalable network infrastructures.</div>
-        <div><strong>Firewall & VPN Configuration</strong><br>Setup and management of pfSense and FortiGate systems with secure VPN access.</div>
-        <div><strong>Linux & Windows Server Administration</strong><br>Full system setup, maintenance, and security hardening.</div>
-        <div><strong>Technical Consultation</strong><br>Professional advice for IT infrastructure and digital transformation projects.</div>
-        <div><strong>e-Learning Systems Deployment</strong><br>Installation and configuration of Moodle, Koha, and DSpace platforms.</div>
-        <div><strong>VSAT and Fiber Network Setup</strong><br>Rural connectivity solutions including VSAT and fiber optic technology.</div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        <div><strong>Ministry of Finance – Data Center</strong><br>Designed and implemented a secure, redundant data center infrastructure.</div>
-        <div><strong>Alsalam University – Library System</strong><br>Built and managed digital library systems using Koha and DSpace.</div>
-        <div><strong>Alodaya Technical College – Network</strong><br>Full campus network infrastructure including wireless access and firewall.</div>
-        <div><strong>VSAT Projects</strong><br>Installed and configured VSAT internet connectivity in remote areas.</div>
-      </div>
-    </section>
-
     <section>
       <h2>Experience</h2>
       <ul>
@@ -146,7 +117,15 @@
         <li><strong>Networks Administrator</strong> – Alsalam University – 2016–2020</li>
       </ul>
     </section>
-
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li>Data Center Design – Ministry of Finance</li>
+        <li>Computer Network – Alodaya Technical College</li>
+        <li>DSpace & Koha Library System – Alsalam University</li>
+        <li>Computer Lab – Faculty of Arts – Alsalam University</li>
+      </ul>
+    </section>
     <section>
       <h2>Certifications</h2>
       <ul>
@@ -157,7 +136,6 @@
         <li>Certified VSAT Installer – Satoms</li>
       </ul>
     </section>
-
     <section>
       <h2>Skills</h2>
       <div class="skills">
@@ -170,7 +148,6 @@
         <div>WordPress & System Admin</div>
       </div>
     </section>
-
     <section>
       <h2>Contact</h2>
       <div class="contact">
@@ -183,7 +160,6 @@
       </div>
     </section>
   </div>
-
   <div class="footer">
     &copy; 2025 Elfatih Farah. All rights reserved.
   </div>
