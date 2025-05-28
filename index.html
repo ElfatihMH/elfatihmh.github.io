@@ -5,239 +5,807 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elfatih Farah | Network and System Engineer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
       --secondary: #1e293b;
       --light: #f8fafc;
       --text: #0f172a;
       --accent: #60a5fa;
+      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
     }
-    body {
-      font-family: 'Roboto', sans-serif;
+    
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
       background-color: var(--light);
       color: var(--text);
+      line-height: 1.6;
     }
+    
+    /* Header Styles */
     header {
-      background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       color: white;
-      padding: 3rem 2rem 2rem;
+      padding: 3rem 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+      opacity: 0.4;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
     header img {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       border: 4px solid white;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      object-fit: cover;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
     }
+    
+    header img:hover {
+      transform: scale(1.05);
+    }
+    
     header h1 {
       margin: 0;
       font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      animation: fadeInDown 1s ease;
     }
+    
     header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      animation: fadeIn 1.5s ease;
     }
+    
+    /* Navigation */
+    nav {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 2rem;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--secondary);
+      cursor: pointer;
+    }
+    
+    /* Contact Bar */
     .contact-bar {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 1rem;
-      background-color: #dbeafe;
-      padding: 1rem;
+      background-color: rgba(219, 234, 254, 0.7);
+      padding: 1.2rem;
       text-align: center;
+      backdrop-filter: blur(5px);
+      position: relative;
+      z-index: 10;
     }
+    
     .contact-bar a {
       background-color: var(--primary);
       color: white;
-      padding: 0.6rem 1.2rem;
+      padding: 0.8rem 1.5rem;
       border-radius: 30px;
       text-decoration: none;
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: var(--card-shadow);
     }
+    
     .contact-bar a:hover {
-      background-color: var(--accent);
-      transform: scale(1.05);
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
     }
+    
+    /* Main Content */
     .container {
-      max-width: 1000px;
-      margin: auto;
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 2rem;
     }
+    
     section {
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+      scroll-margin-top: 80px;
     }
+    
     h2 {
       color: var(--primary);
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
       position: relative;
       text-align: center;
     }
+    
     h2::after {
       content: '';
       display: block;
-      margin: 0.5rem auto 0;
-      width: 60px;
+      width: 80px;
       height: 4px;
       background-color: var(--accent);
       border-radius: 2px;
+      margin: 0.8rem auto;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
-      text-align: left;
+    
+    /* About Section */
+    .about-content {
       max-width: 800px;
-      margin: auto;
-      line-height: 1.8;
-    }
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      justify-content: center;
-    }
-    .skills div {
-      background-color: white;
-      padding: 1rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .testimonials {
-      background-color: white;
-      border: 1px solid #e5e7eb;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-      max-width: 800px;
-      margin: auto;
-    }
-    .testimonial {
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .testimonial span {
-      display: block;
-      margin-top: 0.5rem;
-      font-weight: bold;
-      color: var(--primary);
-    }
-    .download-cv {
+      margin: 0 auto;
       text-align: center;
-      margin-top: 2rem;
     }
-    .download-cv a {
+    
+    .about-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+    
+    /* Experience & Projects Sections */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background-color: var(--accent);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      padding-right: calc(50% + 2rem);
+      text-align: right;
+    }
+    
+    .timeline-item:nth-child(even) {
+      padding-left: calc(50% + 2rem);
+      text-align: left;
+    }
+    
+    .timeline-content {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .timeline-date {
+      display: inline-block;
       background-color: var(--primary);
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .skill-card {
+      background-color: white;
       border-radius: 8px;
-      text-decoration: none;
+      padding: 1.5rem;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition);
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .skill-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    /* Testimonials */
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 4rem;
+      color: rgba(59, 130, 246, 0.1);
+      font-family: serif;
+      line-height: 1;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      font-weight: bold;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
       font-weight: 500;
-      transition: background-color 0.3s ease;
     }
-    .download-cv a:hover {
-      background-color: #1d4ed8;
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: inherit;
+      transition: var(--transition);
     }
-    .footer {
-      text-align: center;
-      padding: 1rem;
+    
+    .form-group textarea {
+      min-height: 150px;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    
+    .submit-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .submit-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
       background-color: var(--secondary);
       color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      opacity: 0.8;
       font-size: 0.9rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header p {
+        font-size: 1.1rem;
+      }
+      
+      .nav-container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links li {
+        margin: 0.5rem 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+      
+      .timeline::before {
+        left: 1rem;
+      }
+      
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        padding: 0 0 0 2rem;
+        text-align: left;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="Elfatih.jpg" alt="Elfatih Farah">
-    <h1>Elfatih Mohamed Hameid Farah</h1>
-    <p>Professional Network & System Engineer</p>
+    <div class="header-content">
+      <img src="Elfatih.jpg" alt="Elfatih Farah">
+      <h1>Elfatih Mohamed Hameid Farah</h1>
+      <p>Professional Network & System Engineer</p>
+    </div>
   </header>
 
+  <nav>
+    <div class="nav-container">
+      <button class="mobile-menu-btn" id="menuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+        <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+        <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+        <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="contact-bar">
-    <a href="mailto:alfatihmh@gmail.com">📧 Email</a>
-    <a href="https://wa.me/218930392538" target="_blank">💬 WhatsApp</a>
-    <a href="https://linkedin.com/in/elfatihmh" target="_blank">🔗 LinkedIn</a>
-    <a href="https://github.com/elfatihmh" target="_blank">💻 GitHub</a>
+    <a href="mailto:alfatihmh@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    <a href="https://wa.me/218930392538" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://linkedin.com/in/elfatihmh" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="https://github.com/elfatihmh" target="_blank"><i class="fab fa-github"></i> GitHub</a>
   </div>
 
   <div class="container">
-    <section>
+    <section id="about">
       <h2>About Me</h2>
-      <div style="max-width: 800px; margin: auto; text-align: left; line-height: 1.8;">
-        <p>Professional ICT Engineer with more than 7 years experiances in this field As following:
- 1- Network Administrator : WANs, LANs, and wireless networks, Cisco, Huawei
- 2- VSAT installing,
- 3- System Administrator : Ubuntu Servers-Windows servers -Virtualization VMware, Proxmox,
- 4- Senior IT Technical support engineer: maintain PCs, printers, scanners, UPSs, and other hardware</p>
+      <div class="about-content">
+        <p>Professional ICT Engineer with more than 7 years experience in this field including:</p>
+        <ul style="text-align: left; max-width: 600px; margin: 1rem auto;">
+          <li>Network Administration: WANs, LANs, and wireless networks (Cisco, Huawei)</li>
+          <li>VSAT installation and configuration</li>
+          <li>System Administration: Ubuntu Servers, Windows servers, Virtualization (VMware, Proxmox)</li>
+          <li>Senior IT Technical Support: maintaining PCs, printers, scanners, UPSs, and other hardware</li>
+        </ul>
       </div>
     </section>
-    <section>
+
+    <section id="experience">
       <h2>Experience</h2>
-      <ul>
-        <li><strong>Senior Technical Support Engineer</strong> – TIC-LY – 2025–Present</li>
-        <li><strong>SYSTEM Administrator - CONTRACT</strong> – Ministry of Finance 2022 – 2025</li>
-        <li><strong>University Department Head of Computer Networks</strong> – Alsalam University – 2020–2022</li>
-        <li><strong>Networks Administrator</strong> – Alsalam University – 2018–2020</li>
-        <li><strong>IT Technical Support</strong> – NMSF, Sudan – 2018–2019</li>
-      </ul>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span class="timeline-date">2025 - Present</span>
+            <h3>Senior Technical Support Engineer</h3>
+            <p>TIC-LY</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span class="timeline-date">2022 - 2025</span>
+            <h3>SYSTEM Administrator - CONTRACT</h3>
+            <p>Ministry of Finance</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span class="timeline-date">2020 - 2022</span>
+            <h3>University Department Head of Computer Networks</h3>
+            <p>Alsalam University</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span class="timeline-date">2018 - 2020</span>
+            <h3>Networks Administrator</h3>
+            <p>Alsalam University</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span class="timeline-date">2018 - 2019</span>
+            <h3>IT Technical Support</h3>
+            <p>NMSF, Sudan</p>
+          </div>
+        </div>
+      </div>
     </section>
-    <section>
+
+    <section id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li>Data Center Design – Ministry of Finance</li>
-        <li>Computer Network – Alodaya Technical College</li>
-        <li>DSpace & Koha Library System – Alsalam University</li>
-        <li>Computer Lab – Faculty of Arts – Alsalam University</li>
-      </ul>
+      <div class="skills-container">
+        <div class="skill-card">
+          <h3><i class="fas fa-database"></i> Data Center Design</h3>
+          <p>Ministry of Finance</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-network-wired"></i> Computer Network</h3>
+          <p>Alodaya Technical College</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-book"></i> DSpace & Koha Library System</h3>
+          <p>Alsalam University</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-laptop"></i> Computer Lab</h3>
+          <p>Faculty of Arts - Alsalam University</p>
+        </div>
+      </div>
     </section>
-    <section>
+
+    <section id="certifications">
       <h2>Certifications</h2>
-      <ul>
-        <li>Google IT Support Certificate</li>
-        <li>Google Project Management Certificate</li>
-        <li>ICSI CNSS – Certified Network Security Specialist</li>
-        <li>Fortinet NSE 1 & NSE 2</li>
-        <li>Certified VSAT Installer – Satoms</li>
-      </ul>
+      <div class="skills-container">
+        <div class="skill-card">
+          <h3><i class="fab fa-google"></i> Google IT Support Certificate</h3>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fab fa-google"></i> Google Project Management Certificate</h3>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-shield-alt"></i> ICSI CNSS - Certified Network Security Specialist</h3>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-firewall"></i> Fortinet NSE 1 & NSE 2</h3>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-satellite-dish"></i> Certified VSAT Installer</h3>
+          <p>Satoms</p>
+        </div>
+      </div>
     </section>
-    <section>
+
+    <section id="skills">
       <h2>Skills</h2>
-      <div class="skills">
-        <div>Linux (Debian, Redhat)</div>
-        <div>pfSense, FortiGate Firewall</div>
-        <div>Python Programming</div>
-        <div>Windows Server</div>
-        <div>Virtualization (VMware, Proxmox)</div>
-        <div>Network Monitoring: Nagios, Cacti</div>
-        <div>WordPress & System Admin</div>
+      <div class="skills-container">
+        <div class="skill-card">
+          <h3><i class="fab fa-linux"></i> Linux Administration</h3>
+          <p>Debian, Redhat</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-firewall"></i> Firewalls</h3>
+          <p>pfSense, FortiGate</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fab fa-python"></i> Python Programming</h3>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fab fa-windows"></i> Windows Server</h3>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-server"></i> Virtualization</h3>
+          <p>VMware, Proxmox</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fas fa-chart-line"></i> Network Monitoring</h3>
+          <p>Nagios, Cacti</p>
+        </div>
+        <div class="skill-card">
+          <h3><i class="fab fa-wordpress"></i> WordPress & System Admin</h3>
+        </div>
       </div>
     </section>
-    <section>
+
+    <section id="testimonials">
       <h2>Testimonials</h2>
-      <div class="testimonials">
-        <div class="testimonial">
-          “Elfatih is one of the most dedicated engineers I’ve worked with. His knowledge in network systems is outstanding.”
-          <span>— IT Director, Alsalam University</span>
+      <div class="testimonials-container">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Elfatih is one of the most dedicated engineers I've worked with. His knowledge in network systems is outstanding."</p>
+          <p class="testimonial-author"><i class="fas fa-user-tie"></i> IT Director, Alsalam University</p>
         </div>
-        <div class="testimonial">
-          “His ability to troubleshoot under pressure saved our infrastructure during a critical system outage.”
-          <span>— Infrastructure Manager, Ministry of Finance</span>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"His ability to troubleshoot under pressure saved our infrastructure during a critical system outage."</p>
+          <p class="testimonial-author"><i class="fas fa-user-tie"></i> Infrastructure Manager, Ministry of Finance</p>
         </div>
       </div>
     </section>
-    <div class="download-cv">
-      <a href="Elfatih_Farah_CV.pdf" download>📄 Download My CV (PDF)</a>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <div class="download-cv" style="text-align: center; margin: 3rem 0;">
+      <a href="Elfatih_Farah_CV.pdf" download class="submit-btn">
+        <i class="fas fa-file-pdf"></i> Download My CV (PDF)
+      </a>
     </div>
   </div>
 
-  <div class="footer">
-    &copy; 2025 Elfatih Farah. All rights reserved.
-  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="mailto:alfatihmh@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://wa.me/218930392538" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://linkedin.com/in/elfatihmh" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/elfatihmh" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      <p class="copyright">&copy; 2025 Elfatih Farah. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        if (navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+        }
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Here you would typically send the form data to a server
+      // For now, we'll just show an alert
+      alert('Thank you for your message! I will get back to you soon.');
+      contactForm.reset();
+    });
+    
+    // Animation on scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.timeline-item, .skill-card, .testimonial-card');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+    
+    // Set initial state for animated elements
+    document.querySelectorAll('.timeline-item, .skill-card, .testimonial-card').forEach(element => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(20px)';
+      element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
 </body>
 </html>
