@@ -1,812 +1,752 @@
+سأعطيك ملف HTML كامل وجاهز، بتصميم بسيط وجميل وحديث، متجاوب (Responsive)، ويمكنك نسخه ولصقه مباشرة في  index.html  في GitHub Pages.
+الكود يحتوي على:
+• هيدر مع اسمك وروابط التواصل (Email, LinkedIn, GitHub, CV).  
+• أقسام: About, Experience, Projects, Skills, Certifications, Testimonials, Contact.  
+• الألوان بسيطة (داكن مع Accent أزرق)، والخط الافتراضي من المتصفح حتى لا تحتاج ملفات خارجية.  
+• كل معلومات السيرة التي كتبناها سابقًا + إضافة Docker و Kubernetes.
+انسخ الكود كله كما هو:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elfatih Farah | Network and System Engineer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #3b82f6;
-      --primary-dark: #1d4ed8;
-      --secondary: #1e293b;
-      --light: #f8fafc;
-      --text: #0f172a;
-      --accent: #60a5fa;
-      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      --transition: all 0.3s ease;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--light);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    
-    /* Header Styles */
-    header {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
-      opacity: 0.4;
-    }
-    
-    .header-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid white;
-      margin-bottom: 1.5rem;
-      object-fit: cover;
-      box-shadow: var(--card-shadow);
-      transition: var(--transition);
-    }
-    
-    header img:hover {
-      transform: scale(1.05);
-    }
-    
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      animation: fadeInDown 1s ease;
-    }
-    
-    header p {
-      font-size: 1.3rem;
-      opacity: 0.9;
-      margin-bottom: 1.5rem;
-      animation: fadeIn 1.5s ease;
-    }
-    
-    /* Navigation */
-    nav {
-      background-color: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-    }
-    
-    .nav-links {
-      display: flex;
-      list-style: none;
-    }
-    
-    .nav-links li {
-      margin-left: 2rem;
-    }
-    
-    .nav-links a {
-      text-decoration: none;
-      color: var(--secondary);
-      font-weight: 500;
-      transition: var(--transition);
-      position: relative;
-      padding: 0.5rem 0;
-    }
-    
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-    
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--primary);
-      transition: var(--transition);
-    }
-    
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-    
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--secondary);
-      cursor: pointer;
-    }
-    
-    /* Contact Bar */
-    .contact-bar {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      background-color: rgba(219, 234, 254, 0.7);
-      padding: 1.2rem;
-      text-align: center;
-      backdrop-filter: blur(5px);
-      position: relative;
-      z-index: 10;
-    }
-    
-    .contact-bar a {
-      background-color: var(--primary);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: var(--card-shadow);
-    }
-    
-    .contact-bar a:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-3px);
-    }
-    
-    /* Main Content */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    
-    section {
-      margin-bottom: 3rem;
-      padding: 2rem 0;
-      scroll-margin-top: 80px;
-    }
-    
-    h2 {
-      color: var(--primary);
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
-      position: relative;
-      text-align: center;
-    }
-    
-    h2::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background-color: var(--accent);
-      border-radius: 2px;
-      margin: 0.8rem auto;
-    }
-    
-    /* About Section */
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .about-content p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-    
-    /* Experience & Projects Sections */
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 100%;
-      background-color: var(--accent);
-    }
-    
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-      width: 100%;
-    }
-    
-    .timeline-item:nth-child(odd) {
-      padding-right: calc(50% + 2rem);
-      text-align: right;
-    }
-    
-    .timeline-item:nth-child(even) {
-      padding-left: calc(50% + 2rem);
-      text-align: left;
-    }
-    
-    .timeline-content {
-      background-color: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: var(--card-shadow);
-      transition: var(--transition);
-    }
-    
-    .timeline-content:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .timeline-date {
-      display: inline-block;
-      background-color: var(--primary);
-      color: white;
-      padding: 0.3rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    /* Skills Section */
-    .skills-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
-    .skill-card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: var(--card-shadow);
-      transition: var(--transition);
-    }
-    
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .skill-card h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    /* Testimonials */
-    .testimonials-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    
-    .testimonial-card {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: var(--card-shadow);
-      position: relative;
-      transition: var(--transition);
-    }
-    
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .testimonial-card::before {
-      content: '"';
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      font-size: 4rem;
-      color: rgba(59, 130, 246, 0.1);
-      font-family: serif;
-      line-height: 1;
-    }
-    
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .testimonial-author {
-      font-weight: bold;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    /* Contact Form */
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: var(--card-shadow);
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-family: inherit;
-      transition: var(--transition);
-    }
-    
-    .form-group textarea {
-      min-height: 150px;
-    }
-    
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-    }
-    
-    .submit-btn {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 5px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .submit-btn:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-    
-    /* Footer */
-    footer {
-      background-color: var(--secondary);
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    
-    .social-links a {
-      color: white;
-      font-size: 1.5rem;
-      transition: var(--transition);
-    }
-    
-    .social-links a:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
-    }
-    
-    .copyright {
-      opacity: 0.8;
-      font-size: 0.9rem;
-    }
-    
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      
-      header p {
-        font-size: 1.1rem;
-      }
-      
-      .nav-container {
-        flex-direction: column;
-        padding: 1rem;
-      }
-      
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-      }
-      
-      .nav-links.active {
-        display: flex;
-      }
-      
-      .nav-links li {
-        margin: 0.5rem 0;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-      }
-      
-      .timeline::before {
-        left: 1rem;
-      }
-      
-      .timeline-item:nth-child(odd),
-      .timeline-item:nth-child(even) {
-        padding: 0 0 0 2rem;
-        text-align: left;
-      }
-    }
-  </style>
+	<meta charset="UTF-8" />
+	<title>Elfatih Farah | Network & Systems Engineer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Portfolio of Elfatih Mohamed Hameid Farah - Network & Systems Engineer" />
+	<style>
+		:root {
+			--bg-color: #0f172a;
+			--bg-alt: #020617;
+			--card-bg: #111827;
+			--accent: #38bdf8;
+			--accent-soft: rgba(56, 189, 248, 0.15);
+			--text-main: #e5e7eb;
+			--text-muted: #9ca3af;
+			--border-subtle: #1f2937;
+			--danger: #f97373;
+			--font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+		}
+
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			font-family: var(--font-main);
+			background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+			color: var(--text-main);
+			line-height: 1.6;
+		}
+
+		a {
+			color: var(--accent);
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.wrapper {
+			max-width: 1080px;
+			margin: 0 auto;
+			padding: 2rem 1.25rem 3rem;
+		}
+
+		/* Header / Hero */
+		header {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			gap: 2rem;
+			padding: 2rem;
+			margin-bottom: 2.5rem;
+			background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,64,175,0.95));
+			border-radius: 1.25rem;
+			box-shadow: 0 24px 60px rgba(15,23,42,0.8);
+			border: 1px solid rgba(148,163,184,0.4);
+		}
+
+		.profile-main {
+			flex: 2;
+			min-width: 260px;
+		}
+
+		.name {
+			font-size: clamp(1.9rem, 3vw, 2.4rem);
+			font-weight: 700;
+			letter-spacing: 0.03em;
+		}
+
+		.title {
+			margin-top: 0.25rem;
+			font-size: 1.05rem;
+			color: #e0f2fe;
+			font-weight: 500;
+		}
+
+		.location {
+			margin-top: 0.25rem;
+			font-size: 0.95rem;
+			color: #d1d5db;
+		}
+
+		.summary {
+			margin-top: 1rem;
+			font-size: 0.98rem;
+			color: #e5e7eb;
+			max-width: 38rem;
+		}
+
+		.chip-row {
+			margin-top: 0.9rem;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
+		.chip {
+			font-size: 0.78rem;
+			padding: 0.25rem 0.55rem;
+			border-radius: 999px;
+			border: 1px solid rgba(148,163,184,0.7);
+			color: #e5e7eb;
+			background: rgba(15,23,42,0.4);
+			white-space: nowrap;
+		}
+
+		.profile-links {
+			flex: 1.1;
+			min-width: 220px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.75rem;
+		}
+
+		.link-group-title {
+			font-size: 0.8rem;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: #cbd5f5;
+		}
+
+		.link-list {
+			display: flex;
+			flex-direction: column;
+			gap: 0.4rem;
+			font-size: 0.9rem;
+		}
+
+		.link-pill {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.4rem 0.7rem;
+			border-radius: 999px;
+			background: rgba(15,23,42,0.65);
+			border: 1px solid rgba(148,163,184,0.5);
+			color: #e5e7eb;
+		}
+
+		.link-pill span.icon {
+			font-size: 1rem;
+		}
+
+		.btn-row {
+			margin-top: 0.75rem;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
+		.btn-primary,
+		.btn-outline {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.4rem;
+			padding: 0.55rem 0.9rem;
+			border-radius: 999px;
+			font-size: 0.86rem;
+			font-weight: 500;
+			cursor: pointer;
+			border: 1px solid transparent;
+			text-decoration: none;
+		}
+
+		.btn-primary {
+			background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+			color: #0b1120;
+			box-shadow: 0 14px 30px rgba(8,47,73,0.65);
+		}
+
+		.btn-primary:hover {
+			opacity: 0.93;
+			text-decoration: none;
+		}
+
+		.btn-outline {
+			background: rgba(15,23,42,0.7);
+			color: #e5e7eb;
+			border-color: rgba(148,163,184,0.7);
+		}
+
+		.btn-outline:hover {
+			background: rgba(15,23,42,0.95);
+			text-decoration: none;
+		}
+
+		/* Sections */
+		section {
+			margin-bottom: 2rem;
+		}
+
+		.section-title {
+			font-size: 1.1rem;
+			font-weight: 600;
+			margin-bottom: 0.9rem;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			color: #e5e7eb;
+		}
+
+		.section-title::after {
+			content: "";
+			display: inline-block;
+			width: 45px;
+			height: 1px;
+			background: linear-gradient(90deg, var(--accent), transparent);
+			opacity: 0.7;
+		}
+
+		.section-grid {
+			display: grid;
+			grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.3fr);
+			gap: 1.75rem;
+		}
+
+		.card {
+			background: radial-gradient(circle at top left, rgba(56,189,248,0.07), rgba(15,23,42,0.95));
+			border-radius: 1rem;
+			padding: 1.25rem 1.35rem;
+			border: 1px solid rgba(31,41,55,0.9);
+			box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+		}
+
+		/* Experience */
+		.timeline-item + .timeline-item {
+			margin-top: 1rem;
+			border-top: 1px solid var(--border-subtle);
+			padding-top: 0.9rem;
+		}
+
+		.timeline-header {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 0.25rem;
+			align-items: baseline;
+		}
+
+		.timeline-role {
+			font-weight: 600;
+			font-size: 0.98rem;
+		}
+
+		.timeline-org {
+			font-size: 0.9rem;
+			color: var(--text-muted);
+		}
+
+		.timeline-period {
+			font-size: 0.82rem;
+			color: var(--text-muted);
+		}
+
+		.timeline-list {
+			margin: 0.5rem 0 0.1rem;
+			padding-left: 1.1rem;
+			font-size: 0.9rem;
+			color: #e5e7eb;
+		}
+
+		.timeline-list li {
+			margin-bottom: 0.18rem;
+		}
+
+		/* Projects */
+		.project-item + .project-item {
+			margin-top: 0.75rem;
+			border-top: 1px dashed var(--border-subtle);
+			padding-top: 0.7rem;
+		}
+
+		.project-title {
+			font-weight: 600;
+			font-size: 0.95rem;
+		}
+
+		.project-desc {
+			font-size: 0.9rem;
+			color: var(--text-main);
+			margin-top: 0.15rem;
+		}
+
+		/* Skills */
+		.skill-group {
+			margin-bottom: 0.85rem;
+		}
+
+		.skill-group-title {
+			font-size: 0.9rem;
+			font-weight: 600;
+			margin-bottom: 0.25rem;
+			color: #e5e7eb;
+		}
+
+		.skill-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.4rem;
+		}
+
+		.skill-tag {
+			font-size: 0.8rem;
+			padding: 0.25rem 0.55rem;
+			border-radius: 999px;
+			background: rgba(15,23,42,0.9);
+			border: 1px solid rgba(55,65,81,0.9);
+			color: #e5e7eb;
+			white-space: nowrap;
+		}
+
+		/* Certifications */
+		.cert-list {
+			list-style: none;
+			padding-left: 0;
+			margin: 0;
+			font-size: 0.9rem;
+		}
+
+		.cert-list li {
+			margin-bottom: 0.35rem;
+			padding-left: 1.1rem;
+			position: relative;
+		}
+
+		.cert-list li::before {
+			content: "•";
+			position: absolute;
+			left: 0;
+			color: var(--accent);
+		}
+
+		/* Testimonials */
+		.testimonial {
+			border-left: 3px solid var(--accent);
+			padding-left: 0.8rem;
+			margin-bottom: 0.9rem;
+		}
+
+		.testimonial-text {
+			font-size: 0.9rem;
+			color: #e5e7eb;
+			font-style: italic;
+		}
+
+		.testimonial-author {
+			margin-top: 0.2rem;
+			font-size: 0.85rem;
+			color: var(--text-muted);
+			font-weight: 500;
+		}
+
+		/* Contact */
+		.contact-info {
+			font-size: 0.9rem;
+			color: var(--text-main);
+		}
+
+		.contact-info div {
+			margin-bottom: 0.25rem;
+		}
+
+		/* Footer */
+		footer {
+			margin-top: 2.5rem;
+			padding-top: 1.5rem;
+			border-top: 1px solid rgba(31,41,55,0.9);
+			font-size: 0.8rem;
+			color: var(--text-muted);
+			text-align: center;
+		}
+
+		@media (max-width: 768px) {
+			header {
+				padding: 1.5rem;
+			}
+			.section-grid {
+				grid-template-columns: minmax(0, 1fr);
+			}
+		}
+	</style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <img src="Elfatih.jpg" alt="Elfatih Farah">
-      <h1>Elfatih Mohamed Hameid Farah</h1>
-      <p>Professional Network & System Engineer</p>
-    </div>
-  </header>
+	<div class="wrapper">
 
-  <nav>
-    <div class="nav-container">
-      <button class="mobile-menu-btn" id="menuBtn">
-        <i class="fas fa-bars"></i>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-        <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-        <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-        <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
-        <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+		<header>
+			<div class="profile-main">
+				<div class="name">Elfatih Mohamed Hameid Farah</div>
+				<div class="title">Network &amp; Systems Engineer</div>
+				<div class="location">Libya – Tripoli &nbsp; • &nbsp; Open to relocation</div>
 
-  <div class="contact-bar">
-    <a href="mailto:alfatihmh@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-    <a href="https://wa.me/218930392538" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="https://linkedin.com/in/elfatihmh" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    <a href="https://github.com/elfatihmh" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-  </div>
+				<p class="summary">
+					Network &amp; Systems Engineer with 8+ years of experience in system administration, network design,
+					and data center management. Hands-on with Cisco, Huawei, Fortinet, pfSense, VMware, Proxmox,
+					and Linux/Windows Server environments. Delivered secure and resilient infrastructure for government,
+					higher education, and humanitarian organizations. Experienced technical instructor and team lead
+					with a strong focus on practical training and operational excellence.
+				</p>
 
-  <div class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="about-content">
-        <p>Professional ICT Engineer with more than 7 years experience in this field including:</p>
-        <ul style="text-align: left; max-width: 600px; margin: 1rem auto;">
-          <li>Network Administration: WANs, LANs, and wireless networks (Cisco, Huawei)</li>
-          <li>VSAT installation and configuration</li>
-          <li>System Administration: Ubuntu Servers, Windows servers, Virtualization (VMware, Proxmox)</li>
-        </ul>
-      </div>
-    </section>
+				<div class="chip-row">
+					<span class="chip">Data Center Infrastructure</span>
+					<span class="chip">Network Security</span>
+					<span class="chip">Linux &amp; Windows Server</span>
+					<span class="chip">Virtualization</span>
+					<span class="chip">Cloud &amp; Containers</span>
+				</div>
+			</div>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <span class="timeline-date">2025 - Present</span>
-            <h3>Senior Technical Support Engineer</h3>
-            <p>T</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <span class="timeline-date">2022 - 2025</span>
-            <h3>SYSTEM Administrator - CONTRACT</h3>
-            <p>Ministry of Finance</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <span class="timeline-date">2020 - 2022</span>
-            <h3>University Department Head of Computer Networks</h3>
-            <p>Alsalam University</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <span class="timeline-date">2018 - 2020</span>
-            <h3>Networks Administrator</h3>
-            <p>Alsalam University</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <span class="timeline-date">2018 - 2019</span>
-            <h3>IT Technical Support</h3>
-            <p>NMSF, Sudan</p>
-          </div>
-        </div>
-      </div>
-    </section>
+			<div class="profile-links">
+				<div>
+					<div class="link-group-title">Contact</div>
+					<div class="link-list">
+						<a class="link-pill" href="mailto:alfatihmh@gmail.com">
+							<span class="icon">✉️</span>
+							<span>Email: alfatihmh@gmail.com</span>
+						</a>
+						<a class="link-pill" href="https://elfatihmh.github.io" target="_blank" rel="noopener">
+							<span class="icon">🌐</span>
+							<span>Portfolio: elfatihmh.github.io</span>
+						</a>
+						<a class="link-pill" href="https://www.linkedin.com/in/elfatihmh" target="_blank" rel="noopener">
+							<span class="icon">🔗</span>
+							<span>LinkedIn: /in/elfatihmh</span>
+						</a>
+						<a class="link-pill" href="https://github.com/ElfatihMH" target="_blank" rel="noopener">
+							<span class="icon">💻</span>
+							<span>GitHub: @ElfatihMH</span>
+						</a>
+					</div>
+				</div>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="skills-container">
-        <div class="skill-card">
-          <h3><i class="fas fa-database"></i> Data Center Design</h3>
-          <p>Ministry of Finance</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-network-wired"></i> Computer Network</h3>
-          <p>Alodaya Technical College</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-book"></i> DSpace & Koha Library System</h3>
-          <p>Alsalam University</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-laptop"></i> Computer Lab</h3>
-          <p>Faculty of Arts - Alsalam University</p>
-        </div>
-      </div>
-    </section>
+				<div class="btn-row">
+					<a class="btn-primary" href="mailto:alfatihmh@gmail.com?subject=Opportunity%20for%20Network%20%26%20Systems%20Engineer">
+						<span>Contact Me</span>
+					</a>
+					<a class="btn-outline" href="#" onclick="alert('Link this button to your latest CV PDF in the repo.'); return false;">
+						<span>Download CV (PDF)</span>
+					</a>
+				</div>
+			</div>
+		</header>
 
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <div class="skills-container">
-        <div class="skill-card">
-          <h3><i class="fab fa-google"></i> Google IT Support Certificate</h3>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fab fa-google"></i> Google Project Management Certificate</h3>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-shield-alt"></i> ICSI CNSS - Certified Network Security Specialist</h3>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-firewall"></i> Fortinet NSE 1 & NSE 2</h3>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-satellite-dish"></i> Certified VSAT Installer</h3>
-          <p>Satoms</p>
-        </div>
-      </div>
-    </section>
+		<section id="about">
+			<h2 class="section-title">About Me</h2>
+			<div class="card">
+				<p>
+					I am a professional ICT engineer with more than 7 years of experience in networking, systems
+					administration, and data center operations. I have worked with government ministries, universities,
+					and humanitarian organizations, designing and maintaining secure and reliable infrastructures
+					in both traditional and challenging field environments.
+				</p>
+				<p>
+					My expertise covers LAN/WAN design, firewall security, virtualization platforms, and cloud
+					fundamentals. I also enjoy teaching and mentoring, having delivered practical networking and
+					cybersecurity training to hundreds of students and IT staff.
+				</p>
+			</div>
+		</section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-container">
-        <div class="skill-card">
-          <h3><i class="fab fa-linux"></i> Linux Administration</h3>
-          <p>Debian, Redhat</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-firewall"></i> Firewalls</h3>
-          <p>pfSense, FortiGate</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fab fa-python"></i> Python Programming</h3>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fab fa-windows"></i> Windows Server</h3>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-server"></i> Virtualization</h3>
-          <p>VMware, Proxmox</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fas fa-chart-line"></i> Network Monitoring</h3>
-          <p>Nagios, Cacti</p>
-        </div>
-        <div class="skill-card">
-          <h3><i class="fab fa-wordpress"></i> WordPress & System Admin</h3>
-        </div>
-      </div>
-    </section>
+		<section id="experience">
+			<h2 class="section-title">Professional Experience</h2>
+			<div class="section-grid">
+				<div class="card">
+					<div class="timeline-item">
+						<div class="timeline-header">
+							<div>
+								<div class="timeline-role">Network and System Engineer (Contract)</div>
+								<div class="timeline-org">Ministry of Finance and Labor Forces – Sudan</div>
+							</div>
+							<div class="timeline-period">Nov 2022 – Apr 2025</div>
+						</div>
+						<ul class="timeline-list">
+							<li>Designed and implemented a secure Financial System for Closed Accounts supporting critical financial operations.</li>
+							<li>Administered Windows Server (AD DS, DNS, DHCP, GPO) and Linux (Debian/Red Hat) environments.</li>
+							<li>Planned and deployed data center infrastructure including compute, storage, virtualization, and networking.</li>
+							<li>Implemented network security using FortiGate and pfSense firewalls, including security policies and IPsec VPNs.</li>
+							<li>Reduced unplanned downtime by 30% through structured backup management and disaster recovery testing.</li>
+						</ul>
+					</div>
 
-    <section id="testimonials">
-      <h2>Testimonials</h2>
-      <div class="testimonials-container">
-        <div class="testimonial-card">
-          <p class="testimonial-text">"Elfatih is one of the most dedicated engineers I've worked with. His knowledge in network systems is outstanding."</p>
-          <p class="testimonial-author"><i class="fas fa-user-tie"></i> IT Director, Alsalam University</p>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text">"His ability to troubleshoot under pressure saved our infrastructure during a critical system outage."</p>
-          <p class="testimonial-author"><i class="fas fa-user-tie"></i> Infrastructure Manager, Ministry of Finance</p>
-        </div>
-      </div>
-    </section>
+					<div class="timeline-item">
+						<div class="timeline-header">
+							<div>
+								<div class="timeline-role">Head of Computer Network Department</div>
+								<div class="timeline-org">Alsalam University – Sudan</div>
+							</div>
+							<div class="timeline-period">Aug 2020 – Dec 2022</div>
+						</div>
+						<ul class="timeline-list">
+							<li>Led the design, upgrade, and optimization of multi-campus network infrastructure.</li>
+							<li>Managed and mentored IT staff and instructors, improving technical operations by 25%.</li>
+							<li>Supervised academic delivery of Networking, System Administration, and Cybersecurity courses.</li>
+						</ul>
+					</div>
 
-<section id="contact">
-  <h2>Contact Me</h2>
-  <div class="contact-form">
-    <form action="https://formspree.io/f/alfatihmh@gmail.com" method="POST">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">
-        <i class="fas fa-paper-plane"></i> Send Message
-      </button>
-    </form>
-  </div>
-</section>
+					<div class="timeline-item">
+						<div class="timeline-header">
+							<div>
+								<div class="timeline-role">Network and Systems Administrator</div>
+								<div class="timeline-org">Alsalam University – Sudan</div>
+							</div>
+							<div class="timeline-period">Feb 2018 – Aug 2020</div>
+						</div>
+						<ul class="timeline-list">
+							<li>Configured and maintained LAN/WAN networks using Cisco and Huawei routers and switches.</li>
+							<li>Implemented routing protocols including static routing, single-area OSPF, and basic RIP.</li>
+							<li>Reduced connectivity incidents by 40% through proactive monitoring and troubleshooting.</li>
+						</ul>
+					</div>
+				</div>
 
-    <div class="download-cv" style="text-align: center; margin: 3rem 0;">
-      <a href="Elfatih_Farah_CV.pdf" download class="submit-btn">
-        <i class="fas fa-file-pdf"></i> Download My CV (PDF)
-      </a>
-    </div>
-  </div>
+				<div class="card">
+					<div class="timeline-item">
+						<div class="timeline-header">
+							<div>
+								<div class="timeline-role">ICT Technical Instructor</div>
+								<div class="timeline-org">Alsalam University – Sudan</div>
+							</div>
+							<div class="timeline-period">2018 – 2022</div>
+						</div>
+						<ul class="timeline-list">
+							<li>Supervised computer network laboratories and delivered hands-on technical training.</li>
+							<li>Taught Networking Fundamentals, TCP/IP, Routing &amp; Switching, Windows Server, Linux Fundamentals, and Cybersecurity principles.</li>
+							<li>Designed and delivered practical labs for VLANs, routing, firewall fundamentals, and system administration.</li>
+							<li>Trained and mentored hundreds of students across multiple faculties.</li>
+						</ul>
+					</div>
 
-  <footer>
-    <div class="footer-content">
-      <div class="social-links">
-        <a href="mailto:alfatihmh@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-        <a href="https://wa.me/218930392538" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://linkedin.com/in/elfatihmh" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/elfatihmh" target="_blank"><i class="fab fa-github"></i></a>
-      </div>
-      <p class="copyright">&copy; 2025 Elfatih Farah. All rights reserved.</p>
-    </div>
-  </footer>
+					<div class="timeline-item">
+						<div class="timeline-header">
+							<div>
+								<div class="timeline-role">ICT Technical Volunteer Consultant</div>
+								<div class="timeline-org">UNHCR – El Fula Field Office, Sudan</div>
+							</div>
+							<div class="timeline-period">2018 – 2021 (Voluntary)</div>
+						</div>
+						<ul class="timeline-list">
+							<li>Provided daily operational IT support for a humanitarian field office in a low-connectivity environment.</li>
+							<li>Established point-to-point wireless links between remote field locations.</li>
+							<li>Implemented fiber optic and VSAT systems to ensure reliable connectivity.</li>
+							<li>Received an official Letter of Recommendation for dedication and service.</li>
+						</ul>
+					</div>
 
-  <script>
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (navLinks.classList.contains('active')) {
-          navLinks.classList.remove('active');
-        }
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-    
-    // Form submission
-    const contactForm = document.getElementById('contactForm');
-    
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      // Here you would typically send the form data to a server
-      // For now, we'll just show an alert
-      alert('Thank you for your message! I will get back to you soon.');
-      contactForm.reset();
-    });
-    
-    // Animation on scroll
-    const animateOnScroll = () => {
-      const elements = document.querySelectorAll('.timeline-item, .skill-card, .testimonial-card');
-      
-      elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.2;
-        
-        if (elementPosition < screenPosition) {
-          element.style.opacity = '1';
-          element.style.transform = 'translateY(0)';
-        }
-      });
-    };
-    
-    // Set initial state for animated elements
-    document.querySelectorAll('.timeline-item, .skill-card, .testimonial-card').forEach(element => {
-      element.style.opacity = '0';
-      element.style.transform = 'translateY(20px)';
-      element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-    
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-  </script>
+					<div class="timeline-item">
+						<div class="timeline-header">
+							<div>
+								<div class="timeline-role">IT Technical Support Engineer</div>
+								<div class="timeline-org">National Medical Supplies Fund – Sudan</div>
+							</div>
+							<div class="timeline-period">Mar 2018 – Feb 2019</div>
+						</div>
+						<ul class="timeline-list">
+							<li>Provided L2 technical support for end-user systems and network connectivity.</li>
+							<li>Delivered cybersecurity awareness sessions on phishing and password best practices.</li>
+							<li>Documented technical procedures and support workflows.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="projects">
+			<h2 class="section-title">Key Projects</h2>
+			<div class="card">
+				<div class="project-item">
+					<div class="project-title">Ministry of Finance Data Center (2023)</div>
+					<p class="project-desc">
+						End-to-end design and deployment of servers, virtualization platform, firewall security, VPN access,
+						backups, and disaster recovery procedures to support critical financial systems.
+					</p>
+				</div>
+
+				<div class="project-item">
+					<div class="project-title">Alsalam University Data Center Upgrade (2021)</div>
+					<p class="project-desc">
+						Cisco routing and switching implementation, pfSense firewall deployment, network segmentation,
+						and security hardening across multiple campuses to improve performance and security.
+					</p>
+				</div>
+
+				<div class="project-item">
+					<div class="project-title">Digital Library Systems (Koha &amp; DSpace)</div>
+					<p class="project-desc">
+						Deployed Koha and DSpace on Ubuntu servers, enabling secure digital access for 5,000+ users and
+						supporting the university’s e-learning and research activities.
+					</p>
+				</div>
+
+				<div class="project-item">
+					<div class="project-title">Campus Network – Alodaya Technical College</div>
+					<p class="project-desc">
+						Planned and implemented campus network infrastructure including switching, routing, and wireless
+						connectivity to support labs and administrative offices.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="skills">
+			<h2 class="section-title">Technical Skills</h2>
+			<div class="card">
+				<div class="skill-group">
+					<div class="skill-group-title">Networking &amp; Security</div>
+					<div class="skill-tags">
+						<span class="skill-tag">Cisco</span>
+						<span class="skill-tag">Huawei</span>
+						<span class="skill-tag">VLANs</span>
+						<span class="skill-tag">OSPF</span>
+						<span class="skill-tag">RIP</span>
+						<span class="skill-tag">VPN</span>
+						<span class="skill-tag">DHCP</span>
+						<span class="skill-tag">DNS</span>
+						<span class="skill-tag">Active Directory</span>
+						<span class="skill-tag">pfSense</span>
+						<span class="skill-tag">FortiGate</span>
+						<span class="skill-tag">VSAT</span>
+						<span class="skill-tag">Fiber Optics</span>
+					</div>
+				</div>
+
+				<div class="skill-group">
+					<div class="skill-group-title">Systems &amp; Virtualization</div>
+					<div class="skill-tags">
+						<span class="skill-tag">Windows Server 2012–2019</span>
+						<span class="skill-tag">Linux (Debian)</span>
+						<span class="skill-tag">Linux (Red Hat)</span>
+						<span class="skill-tag">VMware ESXi</span>
+						<span class="skill-tag">Proxmox</span>
+						<span class="skill-tag">Hyper-V</span>
+						<span class="skill-tag">Group Policy Management</span>
+					</div>
+				</div>
+
+				<div class="skill-group">
+					<div class="skill-group-title">Cloud, Containers &amp; Collaboration</div>
+					<div class="skill-tags">
+						<span class="skill-tag">AWS Cloud Practitioner</span>
+						<span class="skill-tag">Docker</span>
+						<span class="skill-tag">Kubernetes (K8s)</span>
+						<span class="skill-tag">Microsoft 365</span>
+						<span class="skill-tag">Exchange Online</span>
+						<span class="skill-tag">OneDrive</span>
+						<span class="skill-tag">SharePoint</span>
+					</div>
+				</div>
+
+				<div class="skill-group">
+					<div class="skill-group-title">Monitoring, Scripting &amp; Tools</div>
+					<div class="skill-tags">
+						<span class="skill-tag">Nagios</span>
+						<span class="skill-tag">Cacti</span>
+						<span class="skill-tag">Python scripting</span>
+						<span class="skill-tag">Bash</span>
+						<span class="skill-tag">WordPress administration</span>
+						<span class="skill-tag">Technical Documentation</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="education">
+			<h2 class="section-title">Education &amp; Certifications</h2>
+			<div class="section-grid">
+				<div class="card">
+					<h3 class="skill-group-title">Education</h3>
+					<p style="font-size:0.95rem; margin:0 0 0.25rem;">
+						<strong>Technical Diploma in Computer Networks</strong><br />
+						Alsalam University, Sudan (2015 – 2018)
+					</p>
+				</div>
+
+				<div class="card">
+					<h3 class="skill-group-title">Certifications</h3>
+					<ul class="cert-list">
+						<li>AWS Cloud Practitioner</li>
+						<li>Google IT Support</li>
+						<li>Google Project Management</li>
+						<li>ICSI CNSS – Certified Network Security Specialist</li>
+						<li>Fortinet NSE 1 &amp; NSE 2</li>
+						<li>Certified VSAT Installer (Satoms)</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="testimonials">
+			<h2 class="section-title">Testimonials</h2>
+			<div class="card">
+				<div class="testimonial">
+					<div class="testimonial-text">
+						“Elfatih is one of the most dedicated engineers I've worked with. His knowledge in network systems is outstanding.”
+					</div>
+					<div class="testimonial-author">IT Director, Alsalam University</div>
+				</div>
+
+				<div class="testimonial">
+					<div class="testimonial-text">
+						“His ability to troubleshoot under pressure saved our infrastructure during a critical system outage.”
+					</div>
+					<div class="testimonial-author">Infrastructure Manager, Ministry of Finance</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contact">
+			<h2 class="section-title">Contact</h2>
+			<div class="card contact-info">
+				<div><strong>Email:</strong> <a href="mailto:alfatihmh@gmail.com">alfatihmh@gmail.com</a></div>
+				<div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/elfatihmh" target="_blank" rel="noopener">linkedin.com/in/elfatihmh</a></div>
+				<div><strong>GitHub:</strong> <a href="https://github.com/ElfatihMH" target="_blank" rel="noopener">github.com/ElfatihMH</a></div>
+				<div style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">
+					For collaboration, remote roles, or consulting opportunities in networking, systems, and infrastructure,
+					feel free to reach out via email or LinkedIn.
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			&copy; <span id="year"></span> Elfatih Mohamed Hameid Farah. All rights reserved.
+		</footer>
+	</div>
+
+	<script>
+		// Set current year in footer
+		document.getElementById('year').textContent = new Date().getFullYear();
+	</script>
 </body>
 </html>
-
-
+ماذا تفعل الآن؟
+1. افتح مستودع GitHub الخاص بموقعك  elfatihmh.github.io .  
+2. افتح ملف  index.html  (أو أنشئه إن لم يكن موجودًا).  
+3. امسح المحتوى القديم، والصق الكود أعلاه بالكامل.  
+4. عدّل:
+• رابط زر Download CV (PDF) في السطر الذي فيه  onclick  ليشير إلى ملف الـ PDF في نفس الريبو (مثلاً  href="cv-elfatih-farah.pdf"  واحذف الـ  onclick ).  
+5. اعمل Commit & Push، وانتظر ثواني، ثم افتح الموقع في المتصفح.
+لو واجهت أي مشكلة في العرض (ألوان، حجم، أو تريد إضافة صورة شخصية)، أرسل لي وسأعدّل لك الـ HTML بما يناسبك.
