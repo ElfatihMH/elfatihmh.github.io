@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +7,17 @@
 	<meta name="description" content="Portfolio of Elfatih Mohamed Hameid Farah - Network & Systems Engineer" />
 	<style>
 		:root {
-			--bg-color: #0f172a;
-			--bg-alt: #020617;
-			--card-bg: #111827;
-			--accent: #38bdf8;
-			--accent-soft: rgba(56, 189, 248, 0.15);
-			--text-main: #e5e7eb;
-			--text-muted: #9ca3af;
-			--border-subtle: #1f2937;
-			--danger: #f97373;
+			--bg-color: #f5f7fb;
+			--bg-alt: #ffffff;
+			--primary: #2563eb;
+			--primary-soft: #e0edff;
+			--primary-strong: #1d4ed8;
+			--text-main: #111827;
+			--text-muted: #6b7280;
+			--border-subtle: #e5e7eb;
+			--card-bg: #ffffff;
+			--shadow-soft: 0 10px 35px rgba(15, 23, 42, 0.08);
+			--radius-card: 18px;
 			--font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 		}
 
@@ -26,134 +27,167 @@
 			box-sizing: border-box;
 		}
 
+		html {
+			scroll-behavior: smooth;
+		}
+
 		body {
 			margin: 0;
 			font-family: var(--font-main);
-			background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+			background: radial-gradient(circle at top, #edf2ff 0, #f5f7fb 40%, #ffffff 100%);
 			color: var(--text-main);
 			line-height: 1.6;
 		}
 
 		a {
-			color: var(--accent);
+			color: var(--primary);
 			text-decoration: none;
 		}
 		a:hover {
 			text-decoration: underline;
 		}
 
-		.wrapper {
-			max-width: 1080px;
-			margin: 0 auto;
-			padding: 2rem 1.25rem 3rem;
+		/* Navbar */
+		.navbar {
+			position: sticky;
+			top: 0;
+			z-index: 50;
+			background: rgba(255, 255, 255, 0.92);
+			backdrop-filter: blur(14px);
+			border-bottom: 1px solid rgba(229, 231, 235, 0.8);
 		}
 
-		/* Header / Hero */
-		header {
+		.nav-inner {
+			max-width: 1120px;
+			margin: 0 auto;
+			padding: 0.65rem 1.25rem;
 			display: flex;
-			flex-wrap: wrap;
 			align-items: center;
 			justify-content: space-between;
-			gap: 2rem;
-			padding: 2rem;
-			margin-bottom: 2.5rem;
-			background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,64,175,0.95));
-			border-radius: 1.25rem;
-			box-shadow: 0 24px 60px rgba(15,23,42,0.8);
-			border: 1px solid rgba(148,163,184,0.4);
+			gap: 1rem;
 		}
 
-		.profile-main {
-			flex: 2;
-			min-width: 260px;
-		}
-
-		.name {
-			font-size: clamp(1.9rem, 3vw, 2.4rem);
-			font-weight: 700;
-			letter-spacing: 0.03em;
-		}
-
-		.title {
-			margin-top: 0.25rem;
-			font-size: 1.05rem;
-			color: #e0f2fe;
-			font-weight: 500;
-		}
-
-		.location {
-			margin-top: 0.25rem;
-			font-size: 0.95rem;
-			color: #d1d5db;
-		}
-
-		.summary {
-			margin-top: 1rem;
+		.nav-brand {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			font-weight: 600;
+			color: var(--text-main);
 			font-size: 0.98rem;
-			color: #e5e7eb;
-			max-width: 38rem;
 		}
 
-		.chip-row {
-			margin-top: 0.9rem;
+		.nav-brand span.logo-dot {
+			width: 24px;
+			height: 24px;
+			border-radius: 999px;
+			background: linear-gradient(135deg, #2563eb, #38bdf8);
+			display: inline-block;
+			box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5);
+		}
+
+		.nav-links {
 			display: flex;
 			flex-wrap: wrap;
-			gap: 0.5rem;
-		}
-
-		.chip {
-			font-size: 0.78rem;
-			padding: 0.25rem 0.55rem;
-			border-radius: 999px;
-			border: 1px solid rgba(148,163,184,0.7);
-			color: #e5e7eb;
-			background: rgba(15,23,42,0.4);
-			white-space: nowrap;
-		}
-
-		.profile-links {
-			flex: 1.1;
-			min-width: 220px;
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
 			gap: 0.75rem;
-		}
-
-		.link-group-title {
-			font-size: 0.8rem;
-			text-transform: uppercase;
-			letter-spacing: 0.08em;
-			color: #cbd5f5;
-		}
-
-		.link-list {
-			display: flex;
-			flex-direction: column;
-			gap: 0.4rem;
 			font-size: 0.9rem;
 		}
 
-		.link-pill {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
-			padding: 0.4rem 0.7rem;
+		.nav-links a {
+			padding: 0.35rem 0.7rem;
 			border-radius: 999px;
-			background: rgba(15,23,42,0.65);
-			border: 1px solid rgba(148,163,184,0.5);
-			color: #e5e7eb;
+			color: var(--text-muted);
+			text-decoration: none;
+			transition: all 0.15s ease;
 		}
 
-		.link-pill span.icon {
+		.nav-links a:hover {
+			background: var(--primary-soft);
+			color: var(--primary-strong);
+		}
+
+		.nav-cta {
+			font-size: 0.86rem;
+			padding: 0.4rem 0.9rem;
+			border-radius: 999px;
+			color: #ffffff;
+			background: linear-gradient(135deg, var(--primary), #38bdf8);
+			border: none;
+			text-decoration: none;
+			box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+		}
+
+		.nav-cta:hover {
+			opacity: 0.95;
+			text-decoration: none;
+		}
+
+		.wrapper {
+			max-width: 1120px;
+			margin: 0 auto;
+			padding: 1.75rem 1.25rem 3rem;
+		}
+
+		/* Hero / Header */
+		.hero {
+			display: grid;
+			grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+			gap: 2rem;
+			align-items: center;
+			margin-bottom: 2.5rem;
+		}
+
+		.hero-left {
+			min-width: 0;
+		}
+
+		.hero-title {
+			font-size: clamp(2.0rem, 3vw, 2.5rem);
+			font-weight: 700;
+			letter-spacing: 0.02em;
+			margin-bottom: 0.3rem;
+		}
+
+		.hero-subtitle {
 			font-size: 1rem;
+			color: var(--primary-strong);
+			font-weight: 600;
+			margin-bottom: 0.4rem;
 		}
 
-		.btn-row {
-			margin-top: 0.75rem;
+		.hero-location {
+			font-size: 0.9rem;
+			color: var(--text-muted);
+			margin-bottom: 1rem;
+		}
+
+		.hero-summary {
+			font-size: 0.95rem;
+			color: #374151;
+			margin-bottom: 1rem;
+			max-width: 36rem;
+		}
+
+		.hero-chips {
 			display: flex;
 			flex-wrap: wrap;
 			gap: 0.5rem;
+			margin-bottom: 1.2rem;
+		}
+
+		.chip {
+			font-size: 0.8rem;
+			padding: 0.25rem 0.7rem;
+			border-radius: 999px;
+			background: var(--primary-soft);
+			color: var(--primary-strong);
+			border: 1px solid #bfdbfe;
+			white-space: nowrap;
+		}
+
+		.hero-buttons {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.6rem;
 		}
 
 		.btn-primary,
@@ -162,80 +196,153 @@
 			align-items: center;
 			justify-content: center;
 			gap: 0.4rem;
-			padding: 0.55rem 0.9rem;
+			padding: 0.5rem 1rem;
 			border-radius: 999px;
-			font-size: 0.86rem;
+			font-size: 0.9rem;
 			font-weight: 500;
 			cursor: pointer;
 			border: 1px solid transparent;
 			text-decoration: none;
+			transition: all 0.15s ease;
 		}
 
 		.btn-primary {
-			background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-			color: #0b1120;
-			box-shadow: 0 14px 30px rgba(8,47,73,0.65);
+			background: linear-gradient(135deg, var(--primary), #38bdf8);
+			color: #ffffff;
+			box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
 		}
 
 		.btn-primary:hover {
-			opacity: 0.93;
+			opacity: 0.95;
 			text-decoration: none;
+			transform: translateY(-1px);
 		}
 
 		.btn-outline {
-			background: rgba(15,23,42,0.7);
-			color: #e5e7eb;
-			border-color: rgba(148,163,184,0.7);
+			background: #ffffff;
+			color: var(--text-main);
+			border-color: var(--border-subtle);
 		}
 
 		.btn-outline:hover {
-			background: rgba(15,23,42,0.95);
+			background: #f3f4f6;
 			text-decoration: none;
+		}
+
+		.hero-right {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.profile-card {
+			background: var(--bg-alt);
+			border-radius: var(--radius-card);
+			padding: 1rem 1rem 0.95rem;
+			box-shadow: var(--shadow-soft);
+			border: 1px solid rgba(209, 213, 219, 0.8);
+			text-align: center;
+			max-width: 320px;
+			width: 100%;
+		}
+
+		.profile-image-wrapper {
+			width: 120px;
+			height: 120px;
+			border-radius: 999px;
+			overflow: hidden;
+			margin: 0 auto 0.75rem;
+			border: 3px solid var(--primary-soft);
+			box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+		}
+
+		.profile-image-wrapper img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+
+		.profile-name-small {
+			font-weight: 600;
+			font-size: 1rem;
+		}
+
+		.profile-role-small {
+			font-size: 0.85rem;
+			color: var(--text-muted);
+			margin-bottom: 0.6rem;
+		}
+
+		.profile-links {
+			display: flex;
+			flex-direction: column;
+			gap: 0.35rem;
+			font-size: 0.86rem;
+			align-items: flex-start;
+			margin-top: 0.5rem;
+		}
+
+		.profile-link-row {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.4rem;
+			color: var(--text-muted);
+		}
+
+		.profile-link-row span.icon {
+			font-size: 1rem;
 		}
 
 		/* Sections */
 		section {
-			margin-bottom: 2rem;
+			margin-bottom: 2.5rem;
 		}
 
 		.section-title {
 			font-size: 1.1rem;
 			font-weight: 600;
-			margin-bottom: 0.9rem;
+			margin-bottom: 0.8rem;
 			display: inline-flex;
 			align-items: center;
 			gap: 0.5rem;
-			color: #e5e7eb;
+			color: var(--text-main);
 		}
 
 		.section-title::after {
 			content: "";
 			display: inline-block;
-			width: 45px;
-			height: 1px;
-			background: linear-gradient(90deg, var(--accent), transparent);
-			opacity: 0.7;
+			width: 50px;
+			height: 2px;
+			background: linear-gradient(90deg, var(--primary), transparent);
+			border-radius: 999px;
 		}
 
 		.section-grid {
 			display: grid;
-			grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.3fr);
-			gap: 1.75rem;
+			grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+			gap: 1.5rem;
 		}
 
 		.card {
-			background: radial-gradient(circle at top left, rgba(56,189,248,0.07), rgba(15,23,42,0.95));
-			border-radius: 1rem;
-			padding: 1.25rem 1.35rem;
-			border: 1px solid rgba(31,41,55,0.9);
-			box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+			background: var(--card-bg);
+			border-radius: var(--radius-card);
+			padding: 1.25rem 1.3rem;
+			box-shadow: var(--shadow-soft);
+			border: 1px solid var(--border-subtle);
+		}
+
+		.card:hover {
+			box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+			transform: translateY(-1px);
+			transition: all 0.15s ease;
 		}
 
 		/* Experience */
 		.timeline-item + .timeline-item {
 			margin-top: 1rem;
 			border-top: 1px solid var(--border-subtle);
-			padding-top: 0.9rem;
+			padding-top: 0.85rem;
 		}
 
 		.timeline-header {
@@ -265,16 +372,16 @@
 			margin: 0.5rem 0 0.1rem;
 			padding-left: 1.1rem;
 			font-size: 0.9rem;
-			color: #e5e7eb;
+			color: #374151;
 		}
 
 		.timeline-list li {
-			margin-bottom: 0.18rem;
+			margin-bottom: 0.2rem;
 		}
 
 		/* Projects */
 		.project-item + .project-item {
-			margin-top: 0.75rem;
+			margin-top: 0.8rem;
 			border-top: 1px dashed var(--border-subtle);
 			padding-top: 0.7rem;
 		}
@@ -282,24 +389,25 @@
 		.project-title {
 			font-weight: 600;
 			font-size: 0.95rem;
+			color: var(--text-main);
 		}
 
 		.project-desc {
 			font-size: 0.9rem;
-			color: var(--text-main);
-			margin-top: 0.15rem;
+			color: #4b5563;
+			margin-top: 0.2rem;
 		}
 
 		/* Skills */
 		.skill-group {
-			margin-bottom: 0.85rem;
+			margin-bottom: 0.9rem;
 		}
 
 		.skill-group-title {
 			font-size: 0.9rem;
 			font-weight: 600;
 			margin-bottom: 0.25rem;
-			color: #e5e7eb;
+			color: var(--text-main);
 		}
 
 		.skill-tags {
@@ -310,11 +418,11 @@
 
 		.skill-tag {
 			font-size: 0.8rem;
-			padding: 0.25rem 0.55rem;
+			padding: 0.25rem 0.6rem;
 			border-radius: 999px;
-			background: rgba(15,23,42,0.9);
-			border: 1px solid rgba(55,65,81,0.9);
-			color: #e5e7eb;
+			background: #f3f4ff;
+			border: 1px solid #e5e7eb;
+			color: #1f2933;
 			white-space: nowrap;
 		}
 
@@ -324,6 +432,7 @@
 			padding-left: 0;
 			margin: 0;
 			font-size: 0.9rem;
+			color: #374151;
 		}
 
 		.cert-list li {
@@ -336,19 +445,19 @@
 			content: "•";
 			position: absolute;
 			left: 0;
-			color: var(--accent);
+			color: var(--primary);
 		}
 
 		/* Testimonials */
 		.testimonial {
-			border-left: 3px solid var(--accent);
+			border-left: 3px solid rgba(37, 99, 235, 0.6);
 			padding-left: 0.8rem;
 			margin-bottom: 0.9rem;
 		}
 
 		.testimonial-text {
 			font-size: 0.9rem;
-			color: #e5e7eb;
+			color: #374151;
 			font-style: italic;
 		}
 
@@ -362,7 +471,7 @@
 		/* Contact */
 		.contact-info {
 			font-size: 0.9rem;
-			color: var(--text-main);
+			color: #374151;
 		}
 
 		.contact-info div {
@@ -373,15 +482,31 @@
 		footer {
 			margin-top: 2.5rem;
 			padding-top: 1.5rem;
-			border-top: 1px solid rgba(31,41,55,0.9);
+			border-top: 1px solid var(--border-subtle);
 			font-size: 0.8rem;
 			color: var(--text-muted);
 			text-align: center;
 		}
 
+		@media (max-width: 900px) {
+			.hero {
+				grid-template-columns: minmax(0, 1fr);
+			}
+			.hero-right {
+				order: -1;
+			}
+		}
+
 		@media (max-width: 768px) {
-			header {
-				padding: 1.5rem;
+			.nav-inner {
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+			.nav-links {
+				justify-content: center;
+			}
+			.hero {
+				margin-bottom: 2rem;
 			}
 			.section-grid {
 				grid-template-columns: minmax(0, 1fr);
@@ -390,15 +515,35 @@
 	</style>
 </head>
 <body>
+	<!-- Navbar -->
+	<nav class="navbar">
+		<div class="nav-inner">
+			<div class="nav-brand">
+				<span class="logo-dot"></span>
+				<span>Elfatih Farah · Network &amp; Systems Engineer</span>
+			</div>
+			<div class="nav-links">
+				<a href="#about">About</a>
+				<a href="#experience">Experience</a>
+				<a href="#projects">Projects</a>
+				<a href="#skills">Skills</a>
+				<a href="#education">Education</a>
+				<a href="#testimonials">Testimonials</a>
+				<a href="#contact">Contact</a>
+			</div>
+			<a class="nav-cta" href="mailto:alfatihmh@gmail.com?subject=Opportunity%20for%20Network%20%26%20Systems%20Engineer">Contact</a>
+		</div>
+	</nav>
+
 	<div class="wrapper">
+		<!-- Hero -->
+		<section class="hero" id="top">
+			<div class="hero-left">
+				<h1 class="hero-title">Elfatih Mohamed Hameid Farah</h1>
+				<div class="hero-subtitle">Network &amp; Systems Engineer</div>
+				<div class="hero-location">Libya – Tripoli &nbsp;•&nbsp; Open to relocation</div>
 
-		<header>
-			<div class="profile-main">
-				<div class="name">Elfatih Mohamed Hameid Farah</div>
-				<div class="title">Network &amp; Systems Engineer</div>
-				<div class="location"> Sudan &nbsp; • &nbsp; Open to relocation</div>
-
-				<p class="summary">
+				<p class="hero-summary">
 					Network &amp; Systems Engineer with 8+ years of experience in system administration, network design,
 					and data center management. Hands-on with Cisco, Huawei, Fortinet, pfSense, VMware, Proxmox,
 					and Linux/Windows Server environments. Delivered secure and resilient infrastructure for government,
@@ -406,54 +551,62 @@
 					with a strong focus on practical training and operational excellence.
 				</p>
 
-				<div class="chip-row">
+				<div class="hero-chips">
 					<span class="chip">Data Center Infrastructure</span>
 					<span class="chip">Network Security</span>
 					<span class="chip">Linux &amp; Windows Server</span>
 					<span class="chip">Virtualization</span>
 					<span class="chip">Cloud &amp; Containers</span>
 				</div>
-			</div>
 
-			<div class="profile-links">
-				<div>
-					<div class="link-group-title">Contact</div>
-					<div class="link-list">
-						<a class="link-pill" href="mailto:alfatihmh@gmail.com">
-							<span class="icon">✉️</span>
-							<span>Email: alfatihmh@gmail.com</span>
-						</a>
-						<a class="link-pill" href="https://elfatihmh.github.io" target="_blank" rel="noopener">
-							<span class="icon">🌐</span>
-							<span>Portfolio: elfatihmh.github.io</span>
-						</a>
-						<a class="link-pill" href="https://www.linkedin.com/in/elfatihmh" target="_blank" rel="noopener">
-							<span class="icon">🔗</span>
-							<span>LinkedIn: /in/elfatihmh</span>
-						</a>
-						<a class="link-pill" href="https://github.com/ElfatihMH" target="_blank" rel="noopener">
-							<span class="icon">💻</span>
-							<span>GitHub: @ElfatihMH</span>
-						</a>
-					</div>
-				</div>
-
-				<div class="btn-row">
+				<div class="hero-buttons">
 					<a class="btn-primary" href="mailto:alfatihmh@gmail.com?subject=Opportunity%20for%20Network%20%26%20Systems%20Engineer">
 						<span>Contact Me</span>
 					</a>
-					<a class="btn-outline" href="#" onclick="alert('Link this button to your latest CV PDF in the repo.'); return false;">
+					<a class="btn-outline" href="#" id="cv-button">
 						<span>Download CV (PDF)</span>
 					</a>
 				</div>
 			</div>
-		</header>
 
+			<div class="hero-right">
+				<div class="profile-card">
+					<div class="profile-image-wrapper">
+						<!-- غيّر مسار الصورة هنا إلى صورة حقيقية في الريبو، مثلاً: img/profile.jpg -->
+						<img src="img/profile.jpg" alt="Photo of Elfatih Farah" />
+					</div>
+					<div class="profile-name-small">Elfatih Farah</div>
+					<div class="profile-role-small">Network &amp; Systems Engineer</div>
+
+					<div class="profile-links">
+						<div class="profile-link-row">
+							<span class="icon">✉️</span>
+							<a href="mailto:alfatihmh@gmail.com">alfatihmh@gmail.com</a>
+						</div>
+						<div class="profile-link-row">
+							<span class="icon">🌐</span>
+							<a href="https://elfatihmh.github.io" target="_blank" rel="noopener">elfatihmh.github.io</a>
+						</div>
+						<div class="profile-link-row">
+							<span class="icon">🔗</span>
+							<a href="https://www.linkedin.com/in/elfatihmh" target="_blank" rel="noopener">linkedin.com/in/elfatihmh</a>
+						</div>
+						<div class="profile-link-row">
+							<span class="icon">💻</span>
+							<a href="https://github.com/ElfatihMH" target="_blank" rel="noopener">github.com/ElfatihMH</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- About -->
 		<section id="about">
 			<h2 class="section-title">About Me</h2>
 			<div class="card">
 				<p>
-					I am a Network and System engineer with more than 8 years of experience in networking, systems
+					I am a professional ICT engineer with more than 7 years of experience in networking, systems
 					administration, and data center operations. I have worked with government ministries, universities,
 					and humanitarian organizations, designing and maintaining secure and reliable infrastructures
 					in both traditional and challenging field environments.
@@ -466,6 +619,7 @@
 			</div>
 		</section>
 
+		<!-- Experience -->
 		<section id="experience">
 			<h2 class="section-title">Professional Experience</h2>
 			<div class="section-grid">
@@ -569,6 +723,7 @@
 			</div>
 		</section>
 
+		<!-- Projects -->
 		<section id="projects">
 			<h2 class="section-title">Key Projects</h2>
 			<div class="card">
@@ -606,6 +761,7 @@
 			</div>
 		</section>
 
+		<!-- Skills -->
 		<section id="skills">
 			<h2 class="section-title">Technical Skills</h2>
 			<div class="card">
@@ -668,6 +824,7 @@
 			</div>
 		</section>
 
+		<!-- Education & Certifications -->
 		<section id="education">
 			<h2 class="section-title">Education &amp; Certifications</h2>
 			<div class="section-grid">
@@ -693,6 +850,7 @@
 			</div>
 		</section>
 
+		<!-- Testimonials -->
 		<section id="testimonials">
 			<h2 class="section-title">Testimonials</h2>
 			<div class="card">
@@ -712,6 +870,7 @@
 			</div>
 		</section>
 
+		<!-- Contact -->
 		<section id="contact">
 			<h2 class="section-title">Contact</h2>
 			<div class="card contact-info">
@@ -731,8 +890,15 @@
 	</div>
 
 	<script>
-		// Set current year in footer
+		// year
 		document.getElementById('year').textContent = new Date().getFullYear();
+
+		// CV button: غيّر المسار إلى ملف الـ PDF في الريبو
+		document.getElementById('cv-button').addEventListener('click', function (e) {
+			e.preventDefault();
+			// مثال: حط اسم ملف الـ CV هنا
+			window.open('cv-elfatih-farah.pdf', '_blank');
+		});
 	</script>
 </body>
 </html>
